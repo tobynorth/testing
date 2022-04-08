@@ -27,18 +27,19 @@ jobs:
             echo ::set-output name=update-type::version-update:semver-patch
           fi
       - name: Approve and enable auto-merge for Dependabot PRs
-        if: ${{
-              (
-                steps.dependabot-metadata &&
-                steps.dependabot-metadata.outputs.update-type == 'version-update:semver-patch'
-              ) || (
-                steps.pyup-bot-metadata &&
-                steps.pyup-bot-metadata.outputs.update-type == 'version-update:semver-patch'
-              )
-            }}
-        run: |
-          gh pr review --approve "$PR_URL" --body "Auto-approved and set to auto-merge by merge_bot_prs Github Action."
-          gh pr merge --auto --squash "$PR_URL"
-        env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        # if: ${{
+        #       (
+        #         steps.dependabot-metadata &&
+        #         steps.dependabot-metadata.outputs.update-type == 'version-update:semver-patch'
+        #       ) || (
+        #         steps.pyup-bot-metadata &&
+        #         steps.pyup-bot-metadata.outputs.update-type == 'version-update:semver-patch'
+        #       )
+        #     }}
+        # run: |
+        #   gh pr review --approve "$PR_URL" --body "Auto-approved and set to auto-merge by merge_bot_prs Github Action."
+        #   gh pr merge --auto --squash "$PR_URL"
+        run: echo "the update type is ${{steps.dependabot-metadata.outputs.update-type}}"
+        # env:
+        #   PR_URL: ${{github.event.pull_request.html_url}}
+        #   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
