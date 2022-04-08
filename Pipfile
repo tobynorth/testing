@@ -5,6 +5,3 @@ verify_ssl = true
 
 [packages]
 pillow = "9.0.0"
-
-[requires]
-python_version = "3.7"
