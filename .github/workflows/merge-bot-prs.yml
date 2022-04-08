@@ -14,11 +14,12 @@ jobs:
     steps:
       - name: Dependabot metadata
         if: github.actor == 'dependabot[bot]'
-        id: metadata
+        id: dependabot-metadata
         uses: dependabot/fetch-metadata@v1
+        run:
       - name: PyUp Bot metadata
         if: github.actor == 'pyup-bot'
-        id: metadata
+        id: pyup-bot-metadata
         run: |
           BRANCH_NAME=${{github.event.pull_request.head.ref}}
           if [[ $BRANCH_NAME =~ .*\-([0-9]+)\.([0-9]+)\.[0-9]+\-to\-([0-9]+)\.([0-9]+)\.[0-9]+$ &&
@@ -27,7 +28,15 @@ jobs:
             echo ::set-output name=update-type::version-update:semver-patch
           fi
       - name: Approve and enable auto-merge for Dependabot PRs
-        if: ${{steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
+        if: ${{
+              (
+                steps.dependabot-metadata &&
+                steps.dependabot-metadata.outputs.update-type == 'version-update:semver-patch'
+              ) || (
+                steps.pyup-bot-metadata &&
+                steps.pyup-bot-metadata.outputs.update-type == 'version-update:semver-patch'
+              )
+            }}
         run: |
           gh pr review --approve "$PR_URL" --body "Auto-approved and set to auto-merge by merge_bot_prs Github Action."
           gh pr merge --auto --squash "$PR_URL"
