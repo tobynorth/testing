@@ -1,4 +1,7 @@
 schedule: "every day"
+requirements:
+  - Pipfile
+  - Pipfile.lock
 assignees:
   - tobynorth
 branch_prefix: pyup/
