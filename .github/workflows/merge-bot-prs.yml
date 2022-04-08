@@ -16,7 +16,6 @@ jobs:
         if: github.actor == 'dependabot[bot]'
         id: dependabot-metadata
         uses: dependabot/fetch-metadata@v1
-        run:
       - name: PyUp Bot metadata
         if: github.actor == 'pyup-bot'
         id: pyup-bot-metadata
