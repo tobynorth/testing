@@ -9,3 +9,5 @@ updates:
       interval: "daily"
     reviewers:
       - "tobynorth"
+    allow:
+      - dependency-type: "all"
