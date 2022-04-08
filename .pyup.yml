@@ -1,7 +1,11 @@
 #schedule: "every day"
 requirements:
-  - different/Pipfile
-  - different/Pipfile.lock
+  - different/Pipfile:
+      update: insecure
+      pin: True
+  - different/Pipfile.lock:
+      update: insecure
+      pin: True
 # assignees:
 #   - tobynorth
 # branch_prefix: pyup/
