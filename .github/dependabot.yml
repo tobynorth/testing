@@ -2,6 +2,7 @@ version: 2
 updates:
 
   # JS dependencies
+  # it's different!
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
