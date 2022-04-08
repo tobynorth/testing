@@ -39,7 +39,10 @@ jobs:
         # run: |
         #   gh pr review --approve "$PR_URL" --body "Auto-approved and set to auto-merge by merge_bot_prs Github Action."
         #   gh pr merge --auto --squash "$PR_URL"
-        run: echo "the update type is ${{steps.dependabot-metadata.outputs.update-type}}"
+        run: |
+          echo "the update type is ${{steps.dependabot-metadata.outputs.update-type}}"
+          echo "the prev version is ${{steps.dependabot-metadata.outputs.previous-version}}"
+          echo "the new version is ${{steps.dependabot-metadata.outputs.new-version}}"
         # env:
         #   PR_URL: ${{github.event.pull_request.html_url}}
         #   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
