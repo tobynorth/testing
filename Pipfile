@@ -1,5 +1,5 @@
 [[source]]
-url = "https://pypi.org/simple"
+url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
@@ -109,33 +109,3 @@ certifi = "==2017.4.17"
 segno = "<2.0.0"
 flask-talisman = "0.8.1"
 ddtrace = "<1.0.0"
-
-[dev-packages]
-ipdb = "*"
-pytest= "*"
-pytest-cov = "*"
-watchdog = "==0.9.0"
-diff-cover = "*"
-mypy = "==0.720"
-vcrpy = "*"
-black = "==19.10b0"
-isort = "*"
-safety = "*"
-dodgy = "*"
-sftpserver = "*"
-bandit = "*"
-responses = "==0.16.0" # FIXME pinning temporarily so we don't break moto :(
-moto = "==1.3.14"
-numpy = "<2.0.0"
-scikit-learn = "<1.0.0"
-sklearn2pmml = "<1.0.0"
-seaborn = "*"
-pytest-profiling = "*"
-flameprof = "*"
-fakeredis = "*"
-
-[requires]
-python_version = "3.7"
-
-[pipenv]
-allow_prereleases = true
