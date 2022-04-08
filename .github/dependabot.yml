@@ -1,0 +1,10 @@
+version: 2
+updates:
+
+  # JS dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    reviewers:
+      - "tobynorth"
