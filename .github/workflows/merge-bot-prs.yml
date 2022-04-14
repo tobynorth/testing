@@ -10,24 +10,13 @@ permissions:
 jobs:
   merge_bot_prs:
     runs-on: ubuntu-latest
-    if: contains(fromJson('["dependabot[bot]", "pyup-bot"]'), github.actor)
+    if: github.actor == 'dependabot[bot]'
     steps:
       - name: Dependabot metadata
-        if: github.actor == 'dependabot[bot]'
-        id: dependabot-metadata
-        uses: dependabot/fetch-metadata@v1
-      - name: PyUp Bot metadata
-        if: github.actor == 'pyup-bot'
-        id: pyup-bot-metadata
-        run: |
-          BRANCH_NAME=${{github.event.pull_request.head.ref}}
-          if [[ $BRANCH_NAME =~ .*\-([0-9]+)\.([0-9]+)\.[0-9]+\-to\-([0-9]+)\.([0-9]+)\.[0-9]+$ &&
-          ${BASH_REMATCH[1]} == ${BASH_REMATCH[3]} &&
-          ${BASH_REMATCH[2]} == ${BASH_REMATCH[4]} ]] then
-            echo ::set-output name=update-type::version-update:semver-patch
-          fi
+        id: metadata
+        uses: dependabot/fetch-metadata@d9606730415777cc0dc46d64c4ce0e16624bd714
       - name: Approve and enable auto-merge for Dependabot PRs
-        if: ${{contains(steps.*.outputs.update-type, 'version-update:semver-patch')}}
+        if: ${{steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
         run: |
           gh pr review --approve "$PR_URL" --body "Auto-approved and set to auto-merge by merge_bot_prs Github Action."
           gh pr merge --auto --squash "$PR_URL"

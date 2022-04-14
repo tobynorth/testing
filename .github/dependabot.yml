@@ -4,7 +4,7 @@ updates:
   # JS dependencies
   # it's different!
   - package-ecosystem: "npm"
-    directory: "/different"
+    directory: "/"
     schedule:
       interval: "daily"
     reviewers:
