@@ -5,9 +5,16 @@ updates:
   # it's different!
   - package-ecosystem: "npm"
     directory: "/"
+    open-pull-requests-limit: 0
     schedule:
       interval: "daily"
     reviewers:
       - "tobynorth"
-    allow:
-      - dependency-type: "all"
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    open-pull-requests-limit: 0
+    schedule:
+      interval: "daily"
+    reviewers:
+      - "tobynorth"
