@@ -5,6 +5,7 @@
   "homepage": "https://www.january.com",
   "dependencies": {
     "node-forge": "^0.10.0",
+    "lodash": "^4.17.13",
   },
   "scripts": {
     "start_bp": "npm run gqlgen & DEV_INDEX=index.html node scripts/start.js --no-cache",
