@@ -16,7 +16,7 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@d9606730415777cc0dc46d64c4ce0e16624bd714
       - name: Approve and enable auto-merge for Dependabot PRs
-        if: ${{steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
+        if: ${{steps.metadata.outputs.update-type == 'version-update:semver-patch' && steps.metadata.outputs.package-ecosystem != 'pip'}}
         run: |
           gh pr review --approve "$PR_URL" --body "Auto-approved and set to auto-merge by merge_bot_prs Github Action."
           gh pr merge --auto --squash "$PR_URL"
