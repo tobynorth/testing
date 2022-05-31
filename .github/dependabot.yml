@@ -4,7 +4,7 @@ updates:
   # JS dependencies
   # it's different!
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/different2"
     open-pull-requests-limit: 0
     schedule:
       interval: "daily"
@@ -12,7 +12,7 @@ updates:
       - "tobynorth"
 
   - package-ecosystem: "pip"
-    directory: "/"
+    directory: "/different2"
     open-pull-requests-limit: 0
     schedule:
       interval: "daily"
