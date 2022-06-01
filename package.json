@@ -16,7 +16,7 @@
     "bignumber.js": "^9.0.1",
     "camelcase": "^5.2.0",
     "clsx": "^1.0.4",
-    "css-loader": "2.1.1",
+    "css-loader": "5.2.7",
     "currency.js": "^2.0.3",
     "date-fns": "^2.6.0",
     "date-input-polyfill": "^2.14.0",
