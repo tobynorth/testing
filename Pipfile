@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-ujson = "==1.35"
+ujson = "==5.4.0"
 lxml  = "<4.7.0"
 alembic = "==0.8.10"
 queries = "==1.9.1"
