@@ -107,7 +107,7 @@ google-auth = "<2.0.0"
 plaid-python = "<9.0.0"
 zenpy = "<3.0.0"
 # required for generating a requirements.txt file during build. msrest requires >=2017.4.17 and snowflake-connector-python depends on <2021.0.0
-certifi = "==2017.4.17"
+certifi = "==2022.12.7"
 segno = "<2.0.0"
 flask-talisman = "0.8.1"
 ddtrace = "<1.0.0"
