@@ -14,7 +14,7 @@ psycopg2 = "==2.7.7"
 psycopg2cffi = "==2.8.1"
 raven = {extras = ["flask"],version = "==6.0.0"}
 lob = "==3.0"
-redis = "<4.0.0"
+redis = "<5.0.0"
 celery = "<5.3.0"
 # redis and celery rely on kombu, but are incompatible with versions >= 5.2.0
 kombu = "<5.3.0"
